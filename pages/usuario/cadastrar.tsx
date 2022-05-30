@@ -1,8 +1,8 @@
-import type { NextPage } from 'next'
-import Link from 'next/link'
 import Head from 'next/head'
-import BackgroundLogin from '../pages/components/backgroundLogin'
-const Home: NextPage = () => {
+import Link from 'next/link'
+import BackgroundLogin from '../components/backgroundLogin'
+
+const CadastrarUsuario = () => {
   return (
     <>
       <Head>
@@ -20,11 +20,11 @@ const Home: NextPage = () => {
               <div className='flex-1'>
                 <div className='text-center'>
                   <h2 className='text-4xl font-bold text-center text-gray-700 dark:text-white'>
-                    Seja bem vindo
+                    Informe seus dados
                   </h2>
 
                   <p className='mt-3 text-gray-500 dark:text-gray-300'>
-                    Acesse agora sua conta
+                    Crie agora sua conta
                   </p>
                 </div>
 
@@ -74,17 +74,17 @@ const Home: NextPage = () => {
                     <div className='mt-6'>
                       <div className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
                         <Link href='/dashboard'>
-                          <a>Entrar</a>
+                          <a>Salvar</a>
                         </Link>
                       </div>
                     </div>
                   </form>
 
                   <p className='mt-6 text-sm text-center text-gray-400'>
-                    Não tem uma conta?
-                    <Link href='/usuario/cadastrar'>
+                    Já tem uma conta?
+                    <Link href='/'>
                       <a className='text-blue-500 pl-1 focus:outline-none focus:underline hover:underline'>
-                        Cadastre-se
+                        Entre agora
                       </a>
                     </Link>
                     .
@@ -100,4 +100,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default CadastrarUsuario
