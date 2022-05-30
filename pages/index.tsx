@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import axiosInstance from '../services/axios'
 
 const Home: NextPage = () => {
-  const [helloworld, setHelloWorld] = useState('')
+  const [helloworld, setHelloWorld] = useState({})
 
   useEffect(() => {
     axiosInstance.get('/hello').then((response) => {
@@ -23,7 +23,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className='text-3xl font-bold'>Lap Gerencial app - {helloworld}</h1>
+        <h1 className='text-3xl font-bold'>Lap Gerencial app</h1>
+        <pre>{JSON.stringify(helloworld, null, 2)}</pre>
         <h1 className={styles.title}>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>
         </h1>
