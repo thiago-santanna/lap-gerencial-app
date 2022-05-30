@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   const [helloworld, setHelloWorld] = useState('')
 
   useEffect(() => {
-    axiosInstance.get('/helloworld?name=Vertical').then((response) => {
+    axiosInstance.get('/hello').then((response) => {
       setHelloWorld(response.data)
     })
   }, [])
