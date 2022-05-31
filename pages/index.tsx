@@ -27,7 +27,7 @@ const Home: NextPage = () => {
           router.push('/dashboard')
         } else {
           setErrorAuthenticated(true)
-          console.log('nao logado')
+          console.log('usuario nao logado')
         }
       })
       .catch(function (error) {
