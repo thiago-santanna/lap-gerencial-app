@@ -23,7 +23,7 @@ const HeaderMobile = () => {
 
         {/* <!-- Dropdown Nav -->
             <!-- Quando nao estiver aberto usar hidden  :className="isOpen ? 'flex': 'hidden'"  --> */}
-        <nav id='menu-user-mobile' className='flex flex-col pt-4 hidden'>
+        <nav id='menu-user-mobile' className='flex flex-col pt-4'>
           <a
             href='blank.html'
             className='flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
@@ -62,14 +62,6 @@ const HeaderMobile = () => {
           >
             <i data-feather='log-out' className='mr-3'></i>Sair
           </a>
-          {/* <button className='w-full bg-white cta-btn font-semibold py-2 mt-3 rounded-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center'>
-            <a
-              href='#'
-              className='flex items-center text-blue-700 opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
-            >
-              <i data-feather='log-in' className='mr-3'></i> Entrar
-            </a>
-          </button> */}
         </nav>
       </header>
     </>
