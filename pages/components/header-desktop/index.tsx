@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const HeaderDesktop = () => {
   return (
     <>
@@ -5,7 +7,13 @@ const HeaderDesktop = () => {
         <div id='bem-vindo' className='w-1/2'></div>
         <div className='relative w-1/2 flex justify-end'>
           <button className='realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none'>
-            <img src='https://avatars.githubusercontent.com/u/45977226?v=4' />
+            <Image
+              src={'/user.jpeg'}
+              alt='Imagem do usuario'
+              layout='responsive'
+              height={48}
+              width={48}
+            />
           </button>
 
           <div
