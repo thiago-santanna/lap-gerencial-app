@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetServerSideProps } from 'next'
 import Link from 'next/link'
 import Head from 'next/head'
 import BackgroundLogin from '../pages/components/backgroundLogin'

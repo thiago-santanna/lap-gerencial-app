@@ -20,7 +20,7 @@ const CadastrarUsuario = () => {
               <div className='flex-1'>
                 <div className='text-center'>
                   <h2 className='text-4xl font-bold text-center text-gray-700 dark:text-white'>
-                    Informe seus dados
+                    Seus dados
                   </h2>
 
                   <p className='mt-3 text-gray-500 dark:text-gray-300'>
@@ -72,11 +72,9 @@ const CadastrarUsuario = () => {
                     </div>
 
                     <div className='mt-6'>
-                      <div className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
-                        <Link href='/dashboard'>
-                          <a>Salvar</a>
-                        </Link>
-                      </div>
+                      <button className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+                        Confirmar
+                      </button>
                     </div>
                   </form>
 
