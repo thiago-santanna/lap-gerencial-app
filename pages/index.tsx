@@ -1,8 +1,40 @@
-import type { NextPage, GetServerSideProps } from 'next'
+import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Head from 'next/head'
 import BackgroundLogin from '../pages/components/backgroundLogin'
+import { useState } from 'react'
+import axios from '../providers/axios'
+
 const Home: NextPage = () => {
+  const [username, setUserName] = useState('')
+  const [password, setPassword] = useState('')
+  const [errorAuthenticated, setErrorAuthenticated] = useState(false)
+
+  const router = useRouter()
+
+  function handleDashboard() {
+    axios
+      .post('/auth', {
+        username,
+        password,
+      })
+      .then(function (response) {
+        const isAuthenticated = response.data
+        console.log(response.data)
+        if (isAuthenticated) {
+          setErrorAuthenticated(false)
+          router.push('/dashboard')
+        } else {
+          setErrorAuthenticated(true)
+          console.log('nao logado')
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
   return (
     <>
       <Head>
@@ -19,6 +51,19 @@ const Home: NextPage = () => {
             <div className='flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6'>
               <div className='flex-1'>
                 <div className='text-center'>
+                  {/* componente de erro login */}
+                  {errorAuthenticated && (
+                    <div role='alert' className='mb-2'>
+                      <div className='bg-red-500 text-white font-bold rounded-t px-4 py-2'>
+                        ATENÇÃO
+                      </div>
+                      <div className='border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700'>
+                        <p>Usuário ou senha inválidos.</p>
+                      </div>
+                    </div>
+                  )}
+                  {/* componente de erro login */}
+
                   <h2 className='text-4xl font-bold text-center text-gray-700 dark:text-white'>
                     Seja bem vindo
                   </h2>
@@ -41,6 +86,8 @@ const Home: NextPage = () => {
                         type='email'
                         name='email'
                         id='email'
+                        value={username}
+                        onChange={(event) => setUserName(event.target.value)}
                         placeholder='examplo@examplo.com'
                         className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
                       />
@@ -67,16 +114,20 @@ const Home: NextPage = () => {
                         name='password'
                         id='password'
                         placeholder='Sua Senha'
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
                         className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
                       />
                     </div>
 
                     <div className='mt-6'>
-                      <div className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
-                        <Link href='/dashboard'>
-                          <a>Entrar</a>
-                        </Link>
-                      </div>
+                      <button
+                        type='button'
+                        onClick={handleDashboard}
+                        className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
+                      >
+                        Entrar
+                      </button>
                     </div>
                   </form>
 
