@@ -1,17 +1,5 @@
 import { db } from '../providers/db'
-
-interface IUser {
-  username: string
-  password: string
-}
-
-interface IUserDb {
-  l2nomeus: string
-  l2senhau: string
-  l2utoken: string
-  l2idusuar: number
-  l2idempr: number
-}
+import { IUser, IUserDb } from '../types/usuario'
 
 async function login(login: IUser): Promise<Boolean> {
   const sqlResult: IUserDb = await db

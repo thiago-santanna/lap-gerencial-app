@@ -32,6 +32,22 @@ const CadastrarUsuario = () => {
                   <form>
                     <div>
                       <label
+                        htmlFor='nome'
+                        className='block mb-2 text-sm text-gray-600 dark:text-gray-200'
+                      >
+                        Nome
+                      </label>
+                      <input
+                        type='nome'
+                        name='nome'
+                        id='nome'
+                        placeholder='fulano de tal'
+                        className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
+                      />
+                    </div>
+
+                    <div className='mt-4'>
+                      <label
                         htmlFor='email'
                         className='block mb-2 text-sm text-gray-600 dark:text-gray-200'
                       >
@@ -46,7 +62,23 @@ const CadastrarUsuario = () => {
                       />
                     </div>
 
-                    <div className='mt-6'>
+                    <div className='mt-4'>
+                      <label
+                        htmlFor='Empresa'
+                        className='block mb-2 text-sm text-gray-600 dark:text-gray-200'
+                      >
+                        Código da empresa
+                      </label>
+                      <input
+                        type='Empresa'
+                        name='Empresa'
+                        id='Empresa'
+                        placeholder='LAP'
+                        className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
+                      />
+                    </div>
+
+                    <div className='mt-4'>
                       <div className='flex justify-between mb-2'>
                         <label
                           htmlFor='password'
@@ -54,12 +86,6 @@ const CadastrarUsuario = () => {
                         >
                           Senha
                         </label>
-                        <a
-                          href='#'
-                          className='text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline'
-                        >
-                          Esqueceu da senha?
-                        </a>
                       </div>
 
                       <input
@@ -72,8 +98,11 @@ const CadastrarUsuario = () => {
                     </div>
 
                     <div className='mt-6'>
-                      <button className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
-                        Confirmar
+                      <button
+                        type='button'
+                        className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
+                      >
+                        Cadastrar
                       </button>
                     </div>
                   </form>
