@@ -2,9 +2,10 @@ import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Head from 'next/head'
-import BackgroundLogin from '../pages/components/backgroundLogin'
+import BackgroundLogin from '../pages/components/backgrounds/backgroundLogin'
 import { useState } from 'react'
 import axios from '../providers/axios'
+import { LogIn } from 'react-feather'
 
 const Home: NextPage = () => {
   const [username, setUserName] = useState('')
@@ -124,9 +125,14 @@ const Home: NextPage = () => {
                       <button
                         type='button'
                         onClick={handleDashboard}
-                        className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
+                        className='w-full px-4 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
                       >
-                        Entrar
+                        <LogIn
+                          className='inline mr-2'
+                          size={16}
+                          color='white'
+                        />
+                        <span className='text-sm'>Entrar</span>
                       </button>
                     </div>
                   </form>

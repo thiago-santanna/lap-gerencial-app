@@ -5,10 +5,11 @@ import { IEmpresa } from '../../types/empresa'
 import { IUserDb } from '../../types/usuario'
 import { useState } from 'react'
 import axios from '../../providers/axios'
+import { AlertsCustom } from '../components/alerts'
 
 const CadastrarUsuario = (props: IEmpresa) => {
   const [usuario, setUsuario] = useState<Partial<IUserDb>>({})
-  const [errorInserted, setErrorInserted] = useState<string>('')
+  const [errorInserted, setErrorInserted] = useState<string>('ERROR')
 
   function handleInsertUser() {
     axios
@@ -32,7 +33,7 @@ const CadastrarUsuario = (props: IEmpresa) => {
         <title>Lap Gerencial</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      {/* componente de erro cadastro */}
+
       {errorInserted === 'ERROR' && (
         <div
           className='bg-red-100 py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full'
@@ -49,7 +50,7 @@ const CadastrarUsuario = (props: IEmpresa) => {
           </button>
         </div>
       )}
-      {/* componente de erro cadastro */}
+
       {errorInserted === 'OK' && (
         <div
           className='bg-green-100 py-5 px-6 mb-3 text-base text-green-700 inline-flex items-center w-full'

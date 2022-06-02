@@ -1,16 +1,34 @@
+import Image from 'next/image'
+import { DollarSign, Key, AlertTriangle, HelpCircle } from 'react-feather'
+
 const Aside = () => {
   return (
     <>
-      <aside className='relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl'>
+      <aside className='relative bg-sidebar h-screen w-72 hidden sm:block shadow-xl'>
         <div className='p-6'>
-          <a
-            href='index.html'
-            className='text-white text-3xl font-semibold uppercase hover:text-gray-300'
-          >
+          <div className='text-white text-3xl font-semibold uppercase hover:text-gray-300'>
+            {/* <Image
+              src='/iLapGerencial.jpg'
+              width='48'
+              height='48'
+              alt='Logo marca do iLap Gerencial'
+            /> */}
             Lap Gerencial
-          </a>
-          <button className='w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center'>
-            <i className='fas fa-plus mr-3'></i> Logo Marca
+          </div>
+          <button className='w-full bg-white font-semibold py-2 mt-5 rounded-bl-xl rounded-tr-xl shadow-lg hover:shadow-lg hover:bg-gray-200 flex items-center justify-center'>
+            <a
+              target='_blank'
+              href='https://www.lapinfo.com.br/'
+              className='no-underline'
+              rel='noreferrer'
+            >
+              <Image
+                src='/logoNovo.jpg'
+                width='176'
+                height='96'
+                alt='Logo marca da Lap Informatica'
+              />
+            </a>
           </button>
         </div>
 
@@ -19,26 +37,30 @@ const Aside = () => {
             href='blank.html'
             className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item'
           >
-            <i data-feather='dollar-sign' className='mr-3'></i>Faturamento
+            <DollarSign size={24} color='white' className='mr-3' />
+            Faturamento
           </a>
           <a
             href='blank.html'
             className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item'
           >
-            <i data-feather='plus' className='mr-3'></i>Liberação de gerente
+            <AlertTriangle size={24} color='white' className='mr-3' />
+            Liberação de gerente
           </a>
           <a
             href='blank.html'
             className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item'
           >
-            <i data-feather='plus' className='mr-3'></i>Desbloqueio
+            <Key size={24} color='white' className='mr-3' />
+            Desbloqueio
           </a>
         </nav>
         <a
           href='contato.html'
           className='absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4'
         >
-          <i data-feather='help-circle' className='mr-3'></i>Contate-nos
+          <HelpCircle size={24} color='white' className='mr-3' />
+          Contate-nos
         </a>
       </aside>
     </>
