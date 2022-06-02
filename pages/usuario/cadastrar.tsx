@@ -1,8 +1,13 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import BackgroundLogin from '../components/backgroundLogin'
+import { IEmpresa } from '../../types/empresa'
+import { IUserDb } from '../../types/usuario'
 
-const CadastrarUsuario = () => {
+const CadastrarUsuario = (props: IEmpresa) => {
+  function handleInsertUser() {}
+
   return (
     <>
       <Head>
@@ -128,3 +133,18 @@ const CadastrarUsuario = () => {
 }
 
 export default CadastrarUsuario
+
+export async function getStaticProps() {
+  const empresas = [
+    { ljcodemp: 'LAP' },
+    { ljcodemp: 'FIL' },
+    { ljcodemp: 'IF4' },
+    { ljcodemp: 'LAP' },
+  ]
+
+  return {
+    props: {
+      empresas,
+    },
+  }
+}
