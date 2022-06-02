@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import BackgroundLogin from '../components/backgroundLogin'
+import BackgroundLogin from '../components/backgrounds/backgroundLogin'
 import { IEmpresa } from '../../types/empresa'
 import { IUserDb } from '../../types/usuario'
 import { useState } from 'react'
