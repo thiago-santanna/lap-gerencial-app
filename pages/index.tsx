@@ -15,6 +15,7 @@ const Home: NextPage = () => {
   const router = useRouter()
 
   function handleDashboard() {
+    setErrorAuthenticated(false)
     axios
       .post('/auth', {
         username,
@@ -24,7 +25,6 @@ const Home: NextPage = () => {
         const isAuthenticated = response.data
         console.log(response.data)
         if (isAuthenticated) {
-          setErrorAuthenticated(false)
           router.push('/dashboard')
         } else {
           setErrorAuthenticated(true)
@@ -81,7 +81,7 @@ const Home: NextPage = () => {
                         htmlFor='email'
                         className='block mb-2 text-sm text-gray-600 dark:text-gray-200'
                       >
-                        Endereço de e-mail
+                        E-mail ou Nome
                       </label>
                       <input
                         type='email'
@@ -139,7 +139,7 @@ const Home: NextPage = () => {
 
                   <p className='mt-6 text-sm text-center text-gray-400'>
                     Não tem uma conta?
-                    <Link href='/usuario/cadastrar'>
+                    <Link href='/usuario'>
                       <a className='text-blue-500 pl-1 focus:outline-none focus:underline hover:underline'>
                         Cadastre-se
                       </a>

@@ -5,11 +5,12 @@ import { IEmpresa } from '../../types/empresa'
 import { IUserDb } from '../../types/usuario'
 import { useState } from 'react'
 import axios from '../../providers/axios'
+import { Edit } from 'react-feather'
 import AlertsCustom from '../components/alerts'
 
 const CadastrarUsuario = (props: IEmpresa) => {
   const [usuario, setUsuario] = useState<Partial<IUserDb>>({})
-  const [errorInserted, setErrorInserted] = useState<string>('ERROR')
+  const [errorInserted, setErrorInserted] = useState<string>('')
 
   function handleInsertUser() {
     axios
@@ -77,23 +78,46 @@ const CadastrarUsuario = (props: IEmpresa) => {
             <div className='flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6'>
               <div className='flex-1'>
                 <div className='text-center'>
-                  <h2 className='text-4xl font-bold text-center text-gray-700 dark:text-white'>
+                  {/* <h2 className='text-4xl font-bold text-center text-gray-700 dark:text-white'>
                     Seus dados
-                  </h2>
+                  </h2> */}
 
-                  <p className='mt-3 text-gray-500 dark:text-gray-300'>
-                    Crie agora sua conta
+                  <p className='text-lg font-medium mt-3 text-gray-500 dark:text-gray-300'>
+                    Informe seus dados
                   </p>
                 </div>
 
                 <div className='mt-8'>
                   <form>
+                    <div className='mt-4'>
+                      <label
+                        htmlFor='Empresa'
+                        className='block mb-2 text-sm text-gray-600 dark:text-gray-200'
+                      >
+                        Código da empresa
+                      </label>
+                      <input
+                        type='Empresa'
+                        name='Empresa'
+                        id='Empresa'
+                        value={usuario.l2idempr || ''}
+                        onChange={(event) => {
+                          setUsuario({
+                            ...usuario,
+                            l2idempr: 1, //Number(event.target.value), Vai ser um select
+                          })
+                        }}
+                        placeholder='TESTE isso sera um select'
+                        className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
+                      />
+                    </div>
+
                     <div>
                       <label
                         htmlFor='nome'
                         className='block mb-2 text-sm text-gray-600 dark:text-gray-200'
                       >
-                        Nome
+                        Nome no Lapwin
                       </label>
                       <input
                         type='nome'
@@ -106,7 +130,33 @@ const CadastrarUsuario = (props: IEmpresa) => {
                             l2nomeus: event.target.value,
                           })
                         }
-                        placeholder='fulano de tal'
+                        placeholder='Seu nome no Lapwin'
+                        className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
+                      />
+                    </div>
+
+                    <div className='mt-4'>
+                      <div className='flex justify-between mb-2'>
+                        <label
+                          htmlFor='password'
+                          className='text-sm text-gray-600 dark:text-gray-200'
+                        >
+                          Senha no Lapwin
+                        </label>
+                      </div>
+
+                      <input
+                        type='password'
+                        name='password'
+                        id='password'
+                        value={usuario.l2senhau || ''}
+                        onChange={(event) =>
+                          setUsuario({
+                            ...usuario,
+                            l2senhau: event.target.value,
+                          })
+                        }
+                        placeholder='Sua senha no Lapwin'
                         className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
                       />
                     </div>
@@ -135,61 +185,39 @@ const CadastrarUsuario = (props: IEmpresa) => {
                     </div>
 
                     <div className='mt-4'>
-                      <label
-                        htmlFor='Empresa'
-                        className='block mb-2 text-sm text-gray-600 dark:text-gray-200'
-                      >
-                        Código da empresa
-                      </label>
-                      <input
-                        type='Empresa'
-                        name='Empresa'
-                        id='Empresa'
-                        value={usuario.l2idempr || ''}
-                        onChange={(event) => {
-                          setUsuario({
-                            ...usuario,
-                            l2idempr: 1, //Number(event.target.value), Vai ser um select
-                          })
-                        }}
-                        placeholder='TESTE isso sera um select'
-                        className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
-                      />
-                    </div>
-
-                    <div className='mt-4'>
                       <div className='flex justify-between mb-2'>
                         <label
-                          htmlFor='password'
+                          htmlFor='passwordw'
                           className='text-sm text-gray-600 dark:text-gray-200'
                         >
-                          Senha
+                          Senha do site
                         </label>
                       </div>
 
                       <input
                         type='password'
-                        name='password'
-                        id='password'
-                        value={usuario.l2senhau || ''}
+                        name='passwordw'
+                        id='passwordw'
+                        value={usuario.l2senhaw || ''}
                         onChange={(event) =>
                           setUsuario({
                             ...usuario,
-                            l2senhau: event.target.value,
+                            l2senhaw: event.target.value,
                           })
                         }
-                        placeholder='Sua Senha'
+                        placeholder='Sua senha no site'
                         className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
                       />
                     </div>
 
-                    <div className='mt-6'>
+                    <div className='mt-6 text-base'>
                       <button
                         type='button'
                         onClick={handleInsertUser}
                         className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
                       >
-                        Cadastrar
+                        <Edit size={24} color='white' className='mr-3 inline' />
+                        <span className='text-lg'>Cadastrar</span>
                       </button>
                     </div>
                   </form>
