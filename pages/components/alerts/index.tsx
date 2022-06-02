@@ -26,4 +26,4 @@ function AlertsCustom(props: IAlertCustom) {
   )
 }
 
-export { AlertsCustom }
+export default AlertsCustom
