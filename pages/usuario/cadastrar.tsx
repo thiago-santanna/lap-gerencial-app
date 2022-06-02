@@ -1,12 +1,30 @@
-import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import BackgroundLogin from '../components/backgroundLogin'
 import { IEmpresa } from '../../types/empresa'
 import { IUserDb } from '../../types/usuario'
+import { useState } from 'react'
+import axios from '../../providers/axios'
 
 const CadastrarUsuario = (props: IEmpresa) => {
-  function handleInsertUser() {}
+  const [usuario, setUsuario] = useState<Partial<IUserDb>>({})
+  const [errorInserted, setErrorInserted] = useState<string>('')
+
+  function handleInsertUser() {
+    axios
+      .post('/usuarios', usuario)
+      .then((response) => {
+        //
+        setErrorInserted('OK')
+      })
+      .catch((error) => {
+        setErrorInserted('ERROR')
+      })
+  }
+
+  function handleHiddenMessage() {
+    setErrorInserted('')
+  }
 
   return (
     <>
@@ -14,6 +32,40 @@ const CadastrarUsuario = (props: IEmpresa) => {
         <title>Lap Gerencial</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
+      {/* componente de erro cadastro */}
+      {errorInserted === 'ERROR' && (
+        <div
+          className='bg-red-100 py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full'
+          role='alert'
+        >
+          <strong className='mr-1'>ATENÇÃO! </strong> Dados inválidos,
+          informe-os corretamente e tente novamente.
+          <button
+            type='button'
+            onClick={handleHiddenMessage}
+            className='font-bold box-content w-4 h-4 p-1 ml-auto text-red-700 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-red-900 hover:opacity-75 hover:no-underline'
+          >
+            X
+          </button>
+        </div>
+      )}
+      {/* componente de erro cadastro */}
+      {errorInserted === 'OK' && (
+        <div
+          className='bg-green-100 py-5 px-6 mb-3 text-base text-green-700 inline-flex items-center w-full'
+          role='alert'
+        >
+          <strong className='mr-1'>ATENÇÃO! </strong> Usuário cadastrado com
+          sucesso.
+          <button
+            type='button'
+            onClick={handleHiddenMessage}
+            className='font-bold box-content w-4 h-4 p-1 ml-auto text-green-700 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-green-900 hover:opacity-75 hover:no-underline'
+          >
+            X
+          </button>
+        </div>
+      )}
 
       <div className='h-screen overflow-hidden flex items-center justify-center bg-white'>
         <div className='bg-white dark:bg-gray-900'>
@@ -46,6 +98,13 @@ const CadastrarUsuario = (props: IEmpresa) => {
                         type='nome'
                         name='nome'
                         id='nome'
+                        value={usuario.l2nomeus || ''}
+                        onChange={(event) =>
+                          setUsuario({
+                            ...usuario,
+                            l2nomeus: event.target.value,
+                          })
+                        }
                         placeholder='fulano de tal'
                         className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
                       />
@@ -62,6 +121,13 @@ const CadastrarUsuario = (props: IEmpresa) => {
                         type='email'
                         name='email'
                         id='email'
+                        value={usuario.l2uemail || ''}
+                        onChange={(event) =>
+                          setUsuario({
+                            ...usuario,
+                            l2uemail: event.target.value,
+                          })
+                        }
                         placeholder='examplo@examplo.com'
                         className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
                       />
@@ -78,7 +144,14 @@ const CadastrarUsuario = (props: IEmpresa) => {
                         type='Empresa'
                         name='Empresa'
                         id='Empresa'
-                        placeholder='LAP'
+                        value={usuario.l2idempr || ''}
+                        onChange={(event) => {
+                          setUsuario({
+                            ...usuario,
+                            l2idempr: 1, //Number(event.target.value), Vai ser um select
+                          })
+                        }}
+                        placeholder='TESTE isso sera um select'
                         className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
                       />
                     </div>
@@ -97,6 +170,13 @@ const CadastrarUsuario = (props: IEmpresa) => {
                         type='password'
                         name='password'
                         id='password'
+                        value={usuario.l2senhau || ''}
+                        onChange={(event) =>
+                          setUsuario({
+                            ...usuario,
+                            l2senhau: event.target.value,
+                          })
+                        }
                         placeholder='Sua Senha'
                         className='block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40'
                       />
@@ -105,6 +185,7 @@ const CadastrarUsuario = (props: IEmpresa) => {
                     <div className='mt-6'>
                       <button
                         type='button'
+                        onClick={handleInsertUser}
                         className='w-full px-4 py-2 tracking-wide text-white text-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
                       >
                         Cadastrar
