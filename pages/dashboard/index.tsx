@@ -1,20 +1,17 @@
 import { NextPage } from 'next'
-import Head from 'next/head'
-import Aside from '../components/aside'
-import Footer from '../components/footer'
-import HeaderDesktop from '../components/header-desktop'
-import HeaderMobile from '../components/header-mobile'
-import MainDashboard from '../components/main-dashboard'
+import Seo from '../components/seo'
 
 const Dashboard: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Dashboard</title>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-      </Head>
+      <Seo
+        title='Dashboard'
+        description='Página principal do sistema, selecione o serviço'
+      />
 
-      <MainDashboard />
+      <main className='w-full flex-grow p-6'>
+        <p>Dashboard</p>
+      </main>
     </>
   )
 }

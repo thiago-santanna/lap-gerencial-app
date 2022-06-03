@@ -3,4 +3,5 @@ export interface IAlertCustom {
   hoverColor: string
   title: string
   message: string
+  handleHiddenMessage(): void
 }

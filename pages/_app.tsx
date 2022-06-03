@@ -5,7 +5,7 @@ import Layout from './components/layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { route } = useRouter()
-  if (route === '/') {
+  if (route === '/' || route === '/usuario') {
     return <Component {...pageProps} />
   } else {
     const layout = Layout

@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import BackgroundLogin from '../components/backgrounds/backgroundLogin'
 import { IEmpresa } from '../../types/empresa'
@@ -6,6 +5,8 @@ import { IUserDb } from '../../types/usuario'
 import { useState } from 'react'
 import axios from '../../providers/axios'
 import { Edit } from 'react-feather'
+import Seo from '../components/seo'
+import AlertsCustom from '../components/alerts'
 
 const CadastrarUsuario = (props: IEmpresa) => {
   const [usuario, setUsuario] = useState<Partial<IUserDb>>({})
@@ -29,43 +30,30 @@ const CadastrarUsuario = (props: IEmpresa) => {
 
   return (
     <>
-      <Head>
-        <title>Lap Gerencial</title>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-      </Head>
+      <Seo
+        title='Cadastro de usuário'
+        description='Página responsável pelo cadastro dos usuários do sistema'
+      />
 
       {errorInserted === 'ERROR' && (
-        <div
-          className='bg-red-100 py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full'
-          role='alert'
-        >
-          <strong className='mr-1'>ATENÇÃO! </strong> Dados inválidos,
-          informe-os corretamente e tente novamente.
-          <button
-            type='button'
-            onClick={handleHiddenMessage}
-            className='font-bold box-content w-4 h-4 p-1 ml-auto text-red-700 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-red-900 hover:opacity-75 hover:no-underline'
-          >
-            X
-          </button>
-        </div>
+        <AlertsCustom
+          principalColor='red'
+          title='ATENÇÃO!'
+          message='Dados inválidos,
+          informe-os corretamente e tente novamente.'
+          hoverColor='red'
+          handleHiddenMessage={handleHiddenMessage}
+        />
       )}
 
       {errorInserted === 'OK' && (
-        <div
-          className='bg-green-100 py-5 px-6 mb-3 text-base text-green-700 inline-flex items-center w-full'
-          role='alert'
-        >
-          <strong className='mr-1'>ATENÇÃO! </strong> Usuário cadastrado com
-          sucesso.
-          <button
-            type='button'
-            onClick={handleHiddenMessage}
-            className='font-bold box-content w-4 h-4 p-1 ml-auto text-green-700 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-green-900 hover:opacity-75 hover:no-underline'
-          >
-            X
-          </button>
-        </div>
+        <AlertsCustom
+          principalColor='green'
+          title='SUCESSO!'
+          message='Usuário cadastrado no sistema, volte e faça entre com seus dados.'
+          hoverColor='green'
+          handleHiddenMessage={handleHiddenMessage}
+        />
       )}
 
       <div className='h-screen overflow-hidden flex items-center justify-center bg-white'>
