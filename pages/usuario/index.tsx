@@ -6,7 +6,6 @@ import { IUserDb } from '../../types/usuario'
 import { useState } from 'react'
 import axios from '../../providers/axios'
 import { Edit } from 'react-feather'
-import AlertsCustom from '../components/alerts'
 
 const CadastrarUsuario = (props: IEmpresa) => {
   const [usuario, setUsuario] = useState<Partial<IUserDb>>({})

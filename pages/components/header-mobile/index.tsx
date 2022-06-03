@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   DollarSign,
   Key,
@@ -50,41 +51,41 @@ const HeaderMobile = () => {
         {/* <!-- Dropdown Nav -->
             <!-- Quando nao estiver aberto usar hidden  :className="isOpen ? 'flex': 'hidden'"  --> */}
         <nav className='flex flex-col pt-4'>
-          <a
-            href='blank.html'
-            className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
-          >
-            <DollarSign size={24} color='white' className='mr-3' />
-            Faturamento
-          </a>
-          <a
-            href='tables.html'
-            className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
-          >
-            <AlertTriangle size={24} color='white' className='mr-3' />
-            Liberação de gerente
-          </a>
-          <a
-            href='forms.html'
-            className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
-          >
-            <Key size={24} color='white' className='mr-3' />
-            Desbloqueio
-          </a>
-          <a
-            href='#'
-            className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
-          >
-            <UserIcon size={24} color='white' className='mr-3' />
-            Conta
-          </a>
-          <a
-            href='index.html'
-            className='flex items-center active-nav-link text-white text-lg py-2 pl-4 nav-item'
-          >
-            <HelpCircle size={24} color='white' className='mr-3' />
-            Contate-nos
-          </a>
+          <Link href='/faturamento'>
+            <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
+              <DollarSign size={24} color='white' className='mr-3' />
+              Faturamento
+            </a>
+          </Link>
+
+          <Link href='/liberacao'>
+            <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
+              <AlertTriangle size={24} color='white' className='mr-3' />
+              Liberação de gerente
+            </a>
+          </Link>
+
+          <Link href='/desbloqueio'>
+            <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
+              <Key size={24} color='white' className='mr-3' />
+              Desbloqueio
+            </a>
+          </Link>
+
+          <Link href='#'>
+            <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
+              <UserIcon size={24} color='white' className='mr-3' />
+              Conta
+            </a>
+          </Link>
+
+          <Link href='/contato'>
+            <a className='flex items-center active-nav-link text-white text-lg py-2 pl-4 nav-item'>
+              <HelpCircle size={24} color='white' className='mr-3' />
+              Contate-nos
+            </a>
+          </Link>
+
           <a
             href='#'
             className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
