@@ -16,7 +16,7 @@ const Aside = () => {
             /> */}
             Lap Gerencial
           </div>
-          <button className='w-full bg-white font-semibold py-2 mt-5 rounded-bl-xl rounded-tr-xl shadow-lg hover:shadow-lg hover:bg-gray-200 flex items-center justify-center'>
+          <button className='w-full bg-white font-semibold py-2 mt-5 flex items-center justify-center'>
             <a
               target='_blank'
               href='https://www.lapinfo.com.br/'
