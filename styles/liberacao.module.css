@@ -6,11 +6,31 @@
   margin: 1rem 0.5rem;
 }
 
+.containerItem {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #060f28;
+  border-radius: 0 0 8px 8px;
+}
+
 .btnMenu {
-  border: solid 1px black;
+  border: solid 1px ##fff;
+  background-color: #3d68ff;
+  color: #fff;
   border-radius: 4px;
   width: 100%;
   padding: 4px 8px;
+  font-weight: bold;
+}
+
+.btnMenu:hover {
+  background-color: #96adff;
+  color: #000;
+  border: none;
 }
 
 @media (min-width: 768px) {

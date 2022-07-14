@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Seo from '../components/seo'
 import styles from '../../styles/liberacao.module.css'
+import LiberacaoItem from '../components/liberacao-item/index'
 
 const Liberacao: NextPage = () => {
   return (
@@ -15,7 +16,7 @@ const Liberacao: NextPage = () => {
           <button
             title='Selecionar os pedidos pendentes'
             className={styles.btnMenu}
-            style={{ borderColor: '#D70000' }}
+            // style={{ borderColor: '#D70000' }}
           >
             Pendentes
           </button>
@@ -39,7 +40,12 @@ const Liberacao: NextPage = () => {
           </button>
         </div>
 
-        <div>Lista selecionada</div>
+        <div>
+          <LiberacaoItem />
+          <LiberacaoItem />
+          <LiberacaoItem />
+          <LiberacaoItem />
+        </div>
       </main>
     </>
   )
