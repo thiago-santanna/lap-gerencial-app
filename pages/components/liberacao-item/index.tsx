@@ -5,6 +5,8 @@ import imgaccepted from '../../../public/accepted.png'
 import imgPending from '../../../public/pending.png'
 import { ILiberacaoItem } from '../../../types/liberacao-item'
 
+import { ArrowRight } from 'react-feather'
+
 export default function LiberacaoItem(props: ILiberacaoItem) {
   function handleImageStatus() {
     if (props.status === 'rejected') {
@@ -46,6 +48,11 @@ export default function LiberacaoItem(props: ILiberacaoItem) {
           <div>
             <span className='text-lg font-bold'>125,00</span>
           </div>
+        </div>
+        <div>
+          <button>
+            <ArrowRight size={20} color='#000' className='mr-3' />
+          </button>
         </div>
       </div>
     </>

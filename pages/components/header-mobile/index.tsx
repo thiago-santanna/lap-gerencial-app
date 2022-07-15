@@ -47,18 +47,13 @@ const HeaderMobile = () => {
             <span className='self-center'>Lap Gerencial</span>
           </a>
 
-          <button
-            onClick={handleShowMenu}
-            className='text-white text-3xl focus:outline-none'
-          >
-            <div className=''>
+          <button onClick={handleShowMenu} className=''>
+            <div>
               <Menu size={24} color='white' className='mr-3' />
             </div>
           </button>
         </div>
 
-        {/* <!-- Dropdown Nav -->
-            <!-- Quando nao estiver aberto usar hidden  :className="isOpen ? 'flex': 'hidden'"  --> */}
         <nav className={classMenu}>
           <Link href='/faturamento'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
@@ -89,7 +84,7 @@ const HeaderMobile = () => {
           </Link>
 
           <Link href='/contato'>
-            <a className='flex items-center active-nav-link text-white text-lg py-2 pl-4 nav-item'>
+            <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
               <HelpCircle size={24} color='white' className='mr-3' />
               Contate-nos
             </a>
