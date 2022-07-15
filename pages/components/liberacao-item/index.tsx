@@ -1,13 +1,29 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import styles from '../../../styles/liberacao.module.css'
+import imgDanied from '../../../public/denied.png'
+import imgaccepted from '../../../public/accepted.png'
+import imgPending from '../../../public/pending.png'
+import { ILiberacaoItem } from '../../../types/liberacao-item'
 
-export default function LiberacaoItem() {
+export default function LiberacaoItem(props: ILiberacaoItem) {
+  function handleImageStatus() {
+    if (props.status === 'rejected') {
+      return imgDanied
+    }
+
+    if (props.status === 'accepted') {
+      return imgaccepted
+    }
+
+    return imgPending
+  }
+
   return (
     <>
       <div className={styles.containerItem}>
-        <div className='realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none'>
+        <div className='realtive z-10 w-12 h-12 rounded-full'>
           <Image
-            src={'/user.jpeg'}
+            src={handleImageStatus()}
             alt='Imagem do usuario'
             layout='responsive'
             height={48}
@@ -15,9 +31,9 @@ export default function LiberacaoItem() {
           />
         </div>
         <div>
-          <h1>DIEGO</h1>
+          <h1 className='text-lg font-bold'>DIEGO</h1>
           <span>02/06/2022 15:08:26</span>
-          <h2>ORLANDO</h2>
+          <h2 className='text-lg font-bold'>ORLANDO</h2>
         </div>
         <div>
           <div>
@@ -28,7 +44,7 @@ export default function LiberacaoItem() {
             <span>Usuario: ATE</span>
           </div>
           <div>
-            <span>125,00</span>
+            <span className='text-lg font-bold'>125,00</span>
           </div>
         </div>
       </div>
