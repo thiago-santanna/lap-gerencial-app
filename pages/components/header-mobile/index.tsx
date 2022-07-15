@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import {
   DollarSign,
   Key,
@@ -7,50 +8,58 @@ import {
   HelpCircle,
   LogOut,
   User as UserIcon,
+  Menu,
 } from 'react-feather'
 
+import lapCircularImg from '../../../public/circular.png'
+
 const HeaderMobile = () => {
+  const [menuIsHidden, setMenuIsHidden] = useState(true)
+  const [classMenu, setClassMenu] = useState('flex flex-col pt-4 hidden')
+
+  const handleShowMenu = () => {
+    const value = !menuIsHidden
+    if (value) {
+      setMenuIsHidden(true)
+      setClassMenu('flex flex-col pt-4 hidden')
+    } else {
+      setMenuIsHidden(false)
+      setClassMenu('flex flex-col pt-4')
+    }
+  }
+
   return (
     <>
       <header className='w-full bg-sidebar py-5 px-6 sm:hidden'>
-        <div className='flex items-center justify-between'>
-          {/* <a
-            href='index.html'
-            className='text-white text-3xl font-semibold uppercase hover:text-gray-300'
-          >
-            Lap Gerencial
-          </a> */}
-
+        <div className='flex gap=2 items-center justify-between'>
           <a
             target='_blank'
             href='https://www.lapinfo.com.br/'
-            className='text-white text-3xl font-semibold uppercase hover:text-gray-300'
+            className='flex justify-between justify-items-center gap-2 text-white text-3xl font-semibold hover:text-gray-300 '
             rel='noreferrer'
           >
             <Image
-              src='/logoNovo.jpg'
+              src={lapCircularImg}
               width='56'
-              height='32'
+              height='56'
               alt='Logo marca da Lap Informatica'
             />
-            Lap Gerencial
+            <span className='self-center'>Lap Gerencial</span>
           </a>
 
-          <button className='text-white text-3xl focus:outline-none'>
-            {/* <!-- Quando estiver fechado --> */}
-            <div id='dv-menu-mobile' className=''>
-              <i data-feather='menu' className=''></i>
-            </div>
-            {/* <!-- Quando estiver aberto --> */}
-            <div id='dv-menu-mobile-close' className='hidden'>
-              <i data-feather='x-circle'></i>
+          <button
+            onClick={handleShowMenu}
+            className='text-white text-3xl focus:outline-none'
+          >
+            <div className=''>
+              <Menu size={24} color='white' className='mr-3' />
             </div>
           </button>
         </div>
 
         {/* <!-- Dropdown Nav -->
             <!-- Quando nao estiver aberto usar hidden  :className="isOpen ? 'flex': 'hidden'"  --> */}
-        <nav className='flex flex-col pt-4'>
+        <nav className={classMenu}>
           <Link href='/faturamento'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
               <DollarSign size={24} color='white' className='mr-3' />
