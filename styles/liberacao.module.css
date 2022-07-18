@@ -15,11 +15,8 @@
   gap: 0.5rem;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-
   border-bottom: 1px solid #060f28;
-  border-radius: 0 0 8px 8px;
 }
 
 .btnMenu {
