@@ -6,17 +6,16 @@ import imgPending from '../../../public/pending.png'
 import { ILiberacaoItem } from '../../../types/liberacao-item'
 
 import { ArrowRight } from 'react-feather'
+import Link from 'next/link'
 
 export default function LiberacaoItem(props: ILiberacaoItem) {
   function handleImageStatus() {
     if (props.status === 'rejected') {
       return imgDanied
     }
-
     if (props.status === 'accepted') {
       return imgaccepted
     }
-
     return imgPending
   }
 
@@ -51,7 +50,11 @@ export default function LiberacaoItem(props: ILiberacaoItem) {
         </div>
         <div>
           <button>
-            <ArrowRight size={20} color='#000' className='mr-3' />
+            <Link href={`/liberacao/${props.idLiberacao}`}>
+              <a>
+                <ArrowRight size={20} color='#000' className='mr-3' />
+              </a>
+            </Link>
           </button>
         </div>
       </div>

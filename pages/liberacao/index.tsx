@@ -1,11 +1,10 @@
-import { NextPage } from 'next'
 import Seo from '../components/seo'
 import styles from '../../styles/liberacao.module.css'
 import LiberacaoItem from '../components/liberacao-item/index'
-import { useState } from 'react'
+import { ReactElement, useState } from 'react'
 import { ILiberacaoItem } from '../../types/liberacao-item'
 
-const Liberacao: NextPage = () => {
+export default function Liberacoes(): ReactElement {
   const [liberacao, setLiberacao] = useState<ILiberacaoItem>({
     status: undefined,
     nomeCliente: 'DIEGO',
@@ -16,7 +15,6 @@ const Liberacao: NextPage = () => {
     idLiberacao: '247',
     valor: 125.0,
   })
-
   return (
     <>
       <Seo
@@ -72,17 +70,11 @@ const Liberacao: NextPage = () => {
             vendedor={'DIMAS'}
             codUsuario={'ADR'}
             empresas={'LAP'}
-            idLiberacao={'1020'}
+            idLiberacao={'1030'}
             valor={100}
           />
-          <LiberacaoItem {...liberacao} />
-          <LiberacaoItem {...liberacao} />
-          <LiberacaoItem {...liberacao} />
-          <LiberacaoItem {...liberacao} />
         </div>
       </main>
     </>
   )
 }
-
-export default Liberacao

@@ -8,6 +8,7 @@
 
 .itensLiberacao {
   position: inherit;
+  font-size: small;
 }
 
 .containerItem {
@@ -15,7 +16,6 @@
   gap: 0.5rem;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 0.5rem;
   border-bottom: 1px solid #060f28;
 }
 
