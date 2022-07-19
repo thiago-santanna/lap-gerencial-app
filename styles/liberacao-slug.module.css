@@ -1,0 +1,60 @@
+.dados {
+  font-weight: bold;
+}
+.dado span {
+  color: #fcff2e;
+}
+.container {
+  background-color: #e0e0e0;
+}
+.BackgroundLiberacao {
+  border: 1px solid #000;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: #fff;
+}
+.containerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.setorEsqHeader {
+  text-align: left;
+}
+.setorDirHeader {
+  text-align: right;
+}
+.bodyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  border-top: 1px solid #000;
+  margin-top: 4px;
+}
+
+.containerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  border: 1px solid #000;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.itemsFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+.itemsGridFooter {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: center;
+}
