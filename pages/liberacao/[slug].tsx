@@ -33,14 +33,30 @@ export default function Liberacao() {
         </div>
       </header>
 
-      <main className='w-full flex-grow p-2'>
-        <p>Liberacao main</p>
+      <div className='text-center font-bold text-xl flex justify-around'>
+        <span>35868</span>
+        <span>ORLANDO</span>
+      </div>
+
+      <main className={styles.containerMain}>
+        <nav>
+          <li className={styles.contentMenu}>
+            <ul>BLOQUEIOS</ul>
+            <ul>ITENS</ul>
+            <ul>FORMA PGTO.</ul>
+          </li>
+        </nav>
+        <div>content</div>
       </main>
+
+      <div className='text-center font-bold text-xl'>
+        <span>20/07/2022 15:44:05</span>
+      </div>
 
       <footer className={styles.containerFooter}>
         <div className={styles.itemsFooter}>
           <input
-            className='p-2'
+            className='p-2 border-2 border-blue-900 rounded-lg'
             type='text'
             name='user'
             id='user'
@@ -54,14 +70,14 @@ export default function Liberacao() {
               height={24}
               width={24}
             />
-            <button className='px-2 py-1 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+            <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
               Liberar
             </button>
           </div>
         </div>
         <div className={styles.itemsFooter}>
           <input
-            className='p-2'
+            className='p-2 border-2 border-blue-900 rounded-lg'
             type='password'
             name='password'
             id='password'
@@ -75,7 +91,7 @@ export default function Liberacao() {
               height={24}
               width={24}
             />
-            <button className='px-2 py-1 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+            <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
               Negar
             </button>
           </div>

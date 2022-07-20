@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className='w-full bg-white text-right p-4'>
-      Desenvolvido por
+      Desenvolvido por{' '}
       <a
         target='_blank'
         href='https://www.lapinfo.com.br/'
