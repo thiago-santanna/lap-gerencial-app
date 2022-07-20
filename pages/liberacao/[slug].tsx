@@ -20,9 +20,9 @@ export default function Liberacao() {
             <p className={styles.dados}>ATE</p>
           </div>
           <div className={styles.setorDirHeader}>
-            <p>Vendedor da Venda/OS:</p>
+            <p>Vendedor:</p>
             <p className={styles.dados}>JUAN</p>
-            <p>Valor da Venda/OS:</p>
+            <p>Valor:</p>
             <p className={styles.dados}>20,00</p>
           </div>
         </div>

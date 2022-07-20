@@ -50,10 +50,12 @@
 .setorEsqHeader {
   text-align: left;
   padding: 0;
+  line-height: 23px;
 }
 .setorDirHeader {
   text-align: right;
   padding: 0;
+  line-height: 23px;
 }
 .bodyHeader {
   display: flex;
