@@ -29,7 +29,7 @@ export default function Liberacao() {
         <div className={styles.bodyHeader}>
           <span>Status:</span>
           <span className={styles.dados}>PENDENTE</span>
-          <span>ID: 8167</span>
+          <span>ID:8167</span>
         </div>
       </header>
 
