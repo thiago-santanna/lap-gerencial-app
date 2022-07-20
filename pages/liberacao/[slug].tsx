@@ -46,7 +46,28 @@ export default function Liberacao() {
             <ul>FORMA PGTO.</ul>
           </li>
         </nav>
-        <div>content</div>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium
+          vel risus a viverra. Nam vitae lacus varius, aliquet erat viverra,
+          sagittis arcu. Etiam euismod rhoncus gravida. Morbi finibus mi vitae
+          urna fermentum mollis. Integer sit amet enim vulputate, interdum erat
+          elementum, rhoncus sapien. Curabitur porta arcu nec odio vestibulum
+          pellentesque id sed nunc. Nunc ultrices dui eu enim tempus, in blandit
+          urna feugiat. Vivamus lorem lacus, euismod feugiat eros eu, fringilla
+          faucibus erat. Duis tincidunt ullamcorper tortor sit amet vestibulum.
+          Proin nec ante in lectus tempus porta at blandit lorem. Morbi et eros
+          sed metus placerat egestas sit amet sed lorem. Integer ornare tellus
+          ac pharetra cursus. Vivamus at nisi risus. Donec nec magna vitae magna
+          molestie elementum. Nam lobortis, mauris non euismod feugiat, sem nisl
+          varius diam, sed ornare nibh nibh at metus. Duis consectetur, felis in
+          ornare posuere, erat metus ultricies risus, ac commodo mi orci sit
+          amet ipsum. Duis lorem elit, imperdiet quis ultrices in, rutrum eu
+          nisi. Sed convallis fringilla sapien, nec ullamcorper velit. Sed diam
+          lorem, pharetra at rutrum eget, facilisis consectetur urna. Quisque et
+          augue aliquam, tincidunt dui at, suscipit ex. Sed quis sodales felis.
+          Aliquam ac mollis mi. In pulvinar pharetra orci, sit amet suscipit
+          diam cursus sed.
+        </div>
       </main>
 
       <div className='text-center font-bold text-xl'>
