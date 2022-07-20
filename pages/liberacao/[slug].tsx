@@ -40,9 +40,15 @@ export default function Liberacao() {
 
       <main className={styles.containerMain}>
         <div className={styles.contentMenu}>
-          <button>BLOQUEIOS</button>
-          <button>ITENS</button>
-          <button>FORMA PGTO.</button>
+          <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+            BLOQUEIOS
+          </button>
+          <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+            ITENS
+          </button>
+          <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+            FORMA PGT
+          </button>
         </div>
         <div className={styles.contentMsg}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium
