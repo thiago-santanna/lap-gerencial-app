@@ -28,7 +28,7 @@ export default function Liberacao() {
         </div>
         <div className={styles.bodyHeader}>
           <span>Status:</span>
-          <span className={styles.dados}>PENDENTE</span>
+          <span className={styles.status}>PENDENTE</span>
           <span>ID:8167</span>
         </div>
       </header>
@@ -51,14 +51,17 @@ export default function Liberacao() {
           </button>
         </div>
         <div className={styles.contentMsg}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium
-          vel risus a viverra. Nam vitae lacus varius, aliquet erat viverra,
-          sagittis arcu. Etiam euismod rhoncus gravida. Morbi finibus mi vitae
-          urna fermentum mollis. Integer sit amet enim vulputate, interdum erat
-          elementum, rhoncus sapien. Curabitur porta arcu nec odio vestibulum
-          pellentesque id sed nunc. Nunc ultrices dui eu enim tempus, in blandit
-          urna feugiat. Vivamus lorem lacus, euismod feugiat eros eu, fringilla
-          faucibus erat. Duis tincidunt ullamcorper tortor sit amet vestibulum.
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium
+            vel risus a viverra. Nam vitae lacus varius, aliquet erat viverra,
+            sagittis arcu. Etiam euismod rhoncus gravida. Morbi finibus mi vitae
+            urna fermentum mollis. Integer sit amet enim vulputate, interdum
+            erat elementum, rhoncus sapien. Curabitur porta arcu nec odio
+            vestibulum pellentesque id sed nunc. Nunc ultrices dui eu enim
+            tempus, in blandit urna feugiat. Vivamus lorem lacus, euismod
+            feugiat eros eu, fringilla faucibus erat. Duis tincidunt ullamcorper
+            tortor sit amet vestibulum.
+          </p>
         </div>
       </main>
 
@@ -76,14 +79,16 @@ export default function Liberacao() {
             placeholder='Usuário LAP'
           />
           <div className={styles.itemsGridFooter}>
-            <Image
-              src={imgaccepted}
-              alt='Imagem liberado'
-              layout='fixed'
-              height={24}
-              width={24}
-            />
             <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+              <i className={styles.icons}>
+                <Image
+                  src={imgaccepted}
+                  alt='Imagem liberado'
+                  layout='fixed'
+                  height={24}
+                  width={24}
+                />
+              </i>
               Liberar
             </button>
           </div>
@@ -97,14 +102,16 @@ export default function Liberacao() {
             placeholder='Senha LAP'
           />
           <div className={styles.itemsGridFooter}>
-            <Image
-              src={imgDanied}
-              alt='Imagem liberado'
-              layout='fixed'
-              height={24}
-              width={24}
-            />
             <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+              <i className={styles.icons}>
+                <Image
+                  src={imgDanied}
+                  alt='Imagem liberado'
+                  layout='fixed'
+                  height={24}
+                  width={24}
+                />
+              </i>
               Negar
             </button>
           </div>

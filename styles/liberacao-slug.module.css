@@ -63,12 +63,15 @@
   border-top: 1px solid #000;
   margin-top: 4px;
 }
+.status {
+  color: #ffc100;
+}
 
 .containerFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
   border-radius: 8px;
 
   border: 1px solid #000;
@@ -86,6 +89,14 @@
 }
 .itemsGridFooter {
   display: grid;
-  grid-template-columns: 32px 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
+}
+
+.itemsGridFooter test > span {
+  float: left;
+}
+
+.icons {
+  float: left;
 }
