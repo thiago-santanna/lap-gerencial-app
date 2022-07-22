@@ -22,7 +22,7 @@ export default function LiberacaoItem(props: ILiberacaoItem) {
   return (
     <>
       <div className={styles.containerItem}>
-        <div className='realtive z-10 w-12 h-12 rounded-full'>
+        <div className='realtive z-10 w-12 h-12 rounded-full ml-4'>
           <Image
             src={handleImageStatus()}
             alt='Imagem do usuario'

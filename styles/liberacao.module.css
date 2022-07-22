@@ -1,9 +1,11 @@
 .containerBtn {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin: 1rem 0.5rem;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.containerBtn div {
+  display: flex;
+  gap: 4px;
 }
 
 .itensLiberacao {
@@ -40,6 +42,12 @@
     align-items: center;
     justify-content: space-between;
     width: 70%;
+    margin-left: 1rem;
+  }
+
+  .containerItem {
+    border: none;
+    margin-bottom: 1rem;
   }
 
   .btnMenu {
