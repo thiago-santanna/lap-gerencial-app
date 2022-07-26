@@ -26,13 +26,13 @@ async function buscarLiberacoes(): Promise<ILiberacaoItem[]> {
       vendedor: liberacao.l3vended,
       dataPedido: liberacao.l3dathor,
       cliente: {
-        id: liberacao.l3codcli,
-        nome: liberacao.l3nomcli,
+        id: liberacao.l3codcli != undefined ? liberacao.l3codcli : '',
+        nome: liberacao.l3nomcli != undefined ? liberacao.l3nomcli : '',
       },
       valor: liberacao.l3valorv,
       gerente: {
         nome: liberacao.l3gerent != null ? liberacao.l3gerent : '',
-        senha: liberacao.l3csenha,
+        senha: liberacao.l3csenha != undefined ? liberacao.l3csenha : '',
       },
       motivoDoBloqueio: liberacao.l3restri,
       itensVenda: liberacao.l3itemve,
