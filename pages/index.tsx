@@ -6,25 +6,30 @@ import BackgroundLogin from '../pages/components/backgrounds/backgroundLogin'
 import { useState } from 'react'
 import axios from '../providers/axios'
 import { LogIn } from 'react-feather'
+import { IRetLogin } from '../types/usuario'
 
-const Home: NextPage = () => {
+const Home: NextPage = (props) => {
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [errorAuthenticated, setErrorAuthenticated] = useState(false)
 
   const router = useRouter()
 
-  function handleDashboard() {
+  function handleLoginUser() {
     setErrorAuthenticated(false)
+
+    sessionStorage.getItem('sessionUser') &&
+      sessionStorage.removeItem('sessionUser')
+
     axios
       .post('/auth', {
         username,
         password,
       })
       .then(function (response) {
-        const isAuthenticated = response.data
-        console.log(response.data)
-        if (isAuthenticated) {
+        const { isLogged, user }: IRetLogin = response.data
+        if (isLogged) {
+          sessionStorage.setItem('sessionUser', JSON.stringify(user))
           router.push('/dashboard')
         } else {
           setErrorAuthenticated(true)
@@ -124,7 +129,7 @@ const Home: NextPage = () => {
                     <div className='mt-6'>
                       <button
                         type='button'
-                        onClick={handleDashboard}
+                        onClick={handleLoginUser}
                         className='w-full px-4 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
                       >
                         <LogIn
@@ -156,5 +161,4 @@ const Home: NextPage = () => {
     </>
   )
 }
-
 export default Home

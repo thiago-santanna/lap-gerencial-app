@@ -1,10 +1,24 @@
+interface Cliente {
+  id?: string
+  nome: string
+}
+
+interface Gerente {
+  nome: string
+  senha?: string
+}
+
 export interface ILiberacaoItem {
   status: 'accepted' | 'rejected' | undefined
-  nomeCliente: string
-  dataHoraVenda: string
-  vendedor: string
-  codUsuario: string
-  empresas: string
-  idLiberacao: string
+  id: string
+  codigoEmpresa: string
+  usuarioPedido: string
+  vendedor?: string
+  dataPedido: string
+  cliente: Cliente
   valor: number
+  gerente: Gerente
+  motivoDoBloqueio: string
+  itensVenda: string
+  formaDePagamento: string
 }

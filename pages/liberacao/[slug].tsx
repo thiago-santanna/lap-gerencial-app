@@ -7,10 +7,7 @@ import imgaccepted from '../../public/accepted.png'
 export default function Liberacao() {
   return (
     <div className={styles.container}>
-      <Seo
-        title='Dashboard'
-        description='Página principal do sistema, selecione o serviço'
-      />
+      <Seo title='Liberação' description='Detalhes da liberação' />
       <header className={styles.BackgroundLiberacao}>
         <div className={styles.containerHeader}>
           <div className={styles.setorEsqHeader}>

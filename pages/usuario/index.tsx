@@ -16,7 +16,6 @@ const CadastrarUsuario = (props: IEmpresa) => {
     axios
       .post('/usuarios', usuario)
       .then((response) => {
-        //
         setErrorInserted('OK')
       })
       .catch((error) => {

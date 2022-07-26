@@ -1,3 +1,11 @@
+export interface IRetLogin {
+  isLogged: boolean
+  user: {
+    username: string
+    passwordhashed: string
+  }
+}
+
 export interface IUser {
   username: string
   password: string

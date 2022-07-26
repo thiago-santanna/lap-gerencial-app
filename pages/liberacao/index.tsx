@@ -5,22 +5,32 @@ import { ReactElement, useState } from 'react'
 import { ILiberacaoItem } from '../../types/liberacao-item'
 
 export default function Liberacoes(): ReactElement {
-  const [liberacao, setLiberacao] = useState<ILiberacaoItem>({
-    status: undefined,
-    nomeCliente: 'DIEGO',
-    dataHoraVenda: '02/06/2022 12:22:12',
-    vendedor: 'ORLANDO',
-    codUsuario: 'ATE',
-    empresas: 'IF4',
-    idLiberacao: '247',
-    valor: 125.0,
-  })
+  const [liberacoes, setLiberacoes] = useState<ILiberacaoItem[]>([
+    {
+      status: 'accepted',
+      id: '',
+      codigoEmpresa: '',
+      usuarioPedido: '',
+      vendedor: '',
+      dataPedido: '',
+      cliente: {
+        id: '',
+        nome: '',
+      },
+      valor: 0,
+      gerente: {
+        nomeLiberou: '',
+        senhaLiberou: '',
+        nomeNegou: '',
+      },
+      motivoDoBloqueio: '',
+      itensVenda: '',
+      formaDePagamento: '',
+    },
+  ])
   return (
     <>
-      <Seo
-        title='Dashboard'
-        description='Página principal do sistema, selecione o serviço'
-      />
+      <Seo title='Liberação' description='Listagem de liberações' />
       <main className='max-w-4xl flex-grow p-2 container mx-auto'>
         {/* cada botao tera uma acao disparando uma funcao que retornara dados' */}
         <div className={styles.containerBtn}>
@@ -55,27 +65,12 @@ export default function Liberacoes(): ReactElement {
         </div>
 
         <div className={styles.itensLiberacao}>
-          <LiberacaoItem {...liberacao} />
-          <LiberacaoItem
-            status={'rejected'}
-            nomeCliente={'Thiago'}
-            dataHoraVenda={'02/01/2014 01:00:00'}
-            vendedor={'DIMAS'}
-            codUsuario={'ADR'}
-            empresas={'LAP'}
-            idLiberacao={'1020'}
-            valor={100}
-          />
-          <LiberacaoItem
-            status={'accepted'}
-            nomeCliente={'Thiago'}
-            dataHoraVenda={'02/01/2014 01:00:00'}
-            vendedor={'DIMAS'}
-            codUsuario={'ADR'}
-            empresas={'LAP'}
-            idLiberacao={'1030'}
-            valor={100}
-          />
+          {liberacoes.map(
+            (liberacao) =>
+              liberacao.id && (
+                <LiberacaoItem key={liberacao.id} {...liberacao} />
+              )
+          )}
         </div>
       </main>
     </>

@@ -1,7 +1,8 @@
 import { db } from '../providers/db'
-import { IUser, IFieldsLogin, IUserDb } from '../types/usuario'
+import { IUser, IFieldsLogin, IUserDb, IRetLogin } from '../types/usuario'
+import { encryptPasswordUser } from '../providers/crypto'
 
-async function login(login: IUser, fields: IFieldsLogin): Promise<Boolean> {
+async function login(login: IUser, fields: IFieldsLogin): Promise<IRetLogin> {
   const sqlResult: IUserDb = await db
     .select()
     .table('lapa02')
@@ -9,9 +10,25 @@ async function login(login: IUser, fields: IFieldsLogin): Promise<Boolean> {
     .andWhere(fields.password, login.password)
     .first()
   if (sqlResult === undefined) {
-    return false
+    return {
+      isLogged: false,
+      user: {
+        username: login.username,
+        passwordhashed: login.password,
+      },
+    }
   }
-  return true
+
+  const passEncrypted = await encryptPasswordUser(login.password)
+  console.log(passEncrypted)
+
+  return {
+    isLogged: true,
+    user: {
+      username: login.username,
+      passwordhashed: passEncrypted,
+    },
+  }
 }
 
 async function logout() {}

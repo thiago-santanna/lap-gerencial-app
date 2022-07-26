@@ -18,7 +18,6 @@ export default function LiberacaoItem(props: ILiberacaoItem) {
     }
     return imgPending
   }
-
   return (
     <>
       <div className={styles.containerItem}>
@@ -50,9 +49,9 @@ export default function LiberacaoItem(props: ILiberacaoItem) {
         </div>
         <div>
           <button>
-            <Link href={`/liberacao/${props.idLiberacao}`}>
+            <Link href={`/liberacao/${props.id}`}>
               <a>
-                <ArrowRight size={20} color='#000' className='mr-3' />
+                <ArrowRight size={26} color='#000' className='mr-3 font-bold' />
               </a>
             </Link>
           </button>
