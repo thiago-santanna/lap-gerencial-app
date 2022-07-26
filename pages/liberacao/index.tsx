@@ -4,6 +4,7 @@ import LiberacaoItem from '../components/liberacao-item/index'
 import { ReactElement, useEffect, useState } from 'react'
 import { ILiberacaoItem } from '../../types/liberacao-item'
 import { useRouter } from 'next/router'
+import axios from '../../providers/axios'
 
 export default function Liberacoes(): ReactElement {
   const [liberacoes, setLiberacoes] = useState<ILiberacaoItem[]>([
@@ -37,6 +38,18 @@ export default function Liberacoes(): ReactElement {
       router.push('/')
     }
   }, [router])
+
+  useEffect(() => {
+    console.log('sessionStorage')
+
+    axios
+      .get('/liberacoes')
+      .then((response) => {
+        const liberacoes: ILiberacaoItem[] = response.data
+        setLiberacoes(liberacoes)
+      })
+      .catch((error) => {})
+  }, [])
 
   return (
     <>

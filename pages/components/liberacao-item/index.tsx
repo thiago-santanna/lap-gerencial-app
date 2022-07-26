@@ -31,20 +31,20 @@ export default function LiberacaoItem(props: ILiberacaoItem) {
           />
         </div>
         <div>
-          <h1 className='text-lg font-bold'>DIEGO</h1>
-          <span>02/06/2022 15:08:26</span>
-          <h2 className='text-lg font-bold'>ORLANDO</h2>
+          <h1 className='text-lg font-bold'>{props.vendedor}</h1>
+          <span>{props.dataPedido}</span>
+          <h2 className='text-lg font-bold'>{props.cliente.nome}</h2>
         </div>
         <div>
           <div>
-            <span>8170</span>
-            <span>IF4</span>
+            <span className='mr-1'>{props.id}</span>
+            <span>{props.codigoEmpresa}</span>
           </div>
           <div>
-            <span>Usuario: ATE</span>
+            <span>Usuario: {props.usuarioPedido}</span>
           </div>
           <div>
-            <span className='text-lg font-bold'>125,00</span>
+            <span className='text-lg font-bold'>{props.valor}</span>
           </div>
         </div>
         <div>

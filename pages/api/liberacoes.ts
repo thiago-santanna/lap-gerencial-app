@@ -1,12 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { buscarLiberacoes, liberarOuNegar } from './../../services/liberacoes'
 
-const Liberacoes = (request: NextApiRequest, response: NextApiResponse) => {
+const Liberacoes = async (
+  request: NextApiRequest,
+  response: NextApiResponse
+) => {
   try {
     if (request.method === 'POST') {
       response.status(200).json('sampleUserData')
     } else if (request.method === 'GET') {
-      response.status(200).json('sampleUserData')
+      const liberacoes = await buscarLiberacoes()
+
+      response.status(200).json(liberacoes)
     } else {
       return response
         .status(500)

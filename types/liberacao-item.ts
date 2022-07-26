@@ -9,7 +9,7 @@ interface Gerente {
 }
 
 export interface ILiberacaoItem {
-  status: 'accepted' | 'rejected' | undefined
+  status: string
   id: string
   codigoEmpresa: string
   usuarioPedido: string
@@ -21,4 +21,25 @@ export interface ILiberacaoItem {
   motivoDoBloqueio: string
   itensVenda: string
   formaDePagamento: string
+}
+
+export const initialLiberacao = {
+  status: 'accepted',
+  id: '',
+  codigoEmpresa: '',
+  usuarioPedido: '',
+  vendedor: '',
+  dataPedido: '',
+  cliente: {
+    id: '',
+    nome: '',
+  },
+  valor: 0,
+  gerente: {
+    nome: '',
+    senha: '',
+  },
+  motivoDoBloqueio: '',
+  itensVenda: '',
+  formaDePagamento: '',
 }
