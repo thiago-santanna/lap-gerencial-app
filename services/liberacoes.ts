@@ -31,7 +31,7 @@ async function buscarLiberacoes(): Promise<ILiberacaoItem[]> {
       },
       valor: liberacao.l3valorv,
       gerente: {
-        nome: liberacao.l3gerent,
+        nome: liberacao.l3gerent != null ? liberacao.l3gerent : '',
         senha: liberacao.l3csenha,
       },
       motivoDoBloqueio: liberacao.l3restri,

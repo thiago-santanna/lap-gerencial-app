@@ -1,10 +1,10 @@
 interface Cliente {
   id?: string
-  nome: string
+  nome?: string
 }
 
 interface Gerente {
-  nome: string
+  nome?: string
   senha?: string
 }
 
