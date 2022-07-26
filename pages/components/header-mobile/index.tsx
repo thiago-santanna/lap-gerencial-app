@@ -55,7 +55,7 @@ const HeaderMobile = () => {
         </div>
 
         <nav className={classMenu}>
-          <Link href='/faturamento'>
+          <Link href='/liberacao'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
               <DollarSign size={24} color='white' className='mr-3' />
               Faturamento
@@ -69,7 +69,7 @@ const HeaderMobile = () => {
             </a>
           </Link>
 
-          <Link href='/desbloqueio'>
+          <Link href='/liberacao'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
               <Key size={24} color='white' className='mr-3' />
               Desbloqueio
@@ -83,7 +83,7 @@ const HeaderMobile = () => {
             </a>
           </Link>
 
-          <Link href='/contato'>
+          <Link href='/liberacao'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
               <HelpCircle size={24} color='white' className='mr-3' />
               Contate-nos

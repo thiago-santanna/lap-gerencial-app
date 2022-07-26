@@ -17,7 +17,6 @@ const Home: NextPage = (props) => {
 
   function handleLoginUser() {
     setErrorAuthenticated(false)
-
     sessionStorage.getItem('sessionUser') &&
       sessionStorage.removeItem('sessionUser')
 
@@ -30,7 +29,7 @@ const Home: NextPage = (props) => {
         const { isLogged, user }: IRetLogin = response.data
         if (isLogged) {
           sessionStorage.setItem('sessionUser', JSON.stringify(user))
-          router.push('/dashboard')
+          router.push('/liberacao')
         } else {
           setErrorAuthenticated(true)
           console.log('usuario nao logado')

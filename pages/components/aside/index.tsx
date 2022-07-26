@@ -34,7 +34,7 @@ const Aside = () => {
         </div>
 
         <nav className='text-white text-base font-semibold pt-3'>
-          <Link href='/faturamento'>
+          <Link href='/liberacao'>
             <a className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item'>
               <DollarSign size={24} color='white' className='mr-3' />
               Faturamento
@@ -48,7 +48,7 @@ const Aside = () => {
             </a>
           </Link>
 
-          <Link href='/desbloqueio'>
+          <Link href='/liberacao'>
             <a className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item'>
               <Key size={24} color='white' className='mr-3' />
               Desbloqueio
@@ -56,7 +56,7 @@ const Aside = () => {
           </Link>
         </nav>
 
-        <Link href='/contato'>
+        <Link href='/liberacao'>
           <a className='absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4'>
             <HelpCircle size={24} color='white' className='mr-3' />
             Contate-nos

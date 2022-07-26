@@ -1,7 +1,17 @@
 import { NextPage } from 'next'
 import Seo from '../components/seo'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 const Dashboard: NextPage = () => {
+  const router = useRouter()
+
+  useEffect(() => {
+    const credentials = sessionStorage.getItem('sessionUser')
+    if (!credentials) {
+      router.push('/')
+    }
+  }, [router])
   return (
     <>
       <Seo

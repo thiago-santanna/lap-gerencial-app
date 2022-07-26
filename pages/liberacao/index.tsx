@@ -1,8 +1,9 @@
 import Seo from '../components/seo'
 import styles from '../../styles/liberacao.module.css'
 import LiberacaoItem from '../components/liberacao-item/index'
-import { ReactElement, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { ILiberacaoItem } from '../../types/liberacao-item'
+import { useRouter } from 'next/router'
 
 export default function Liberacoes(): ReactElement {
   const [liberacoes, setLiberacoes] = useState<ILiberacaoItem[]>([
@@ -19,15 +20,24 @@ export default function Liberacoes(): ReactElement {
       },
       valor: 0,
       gerente: {
-        nomeLiberou: '',
-        senhaLiberou: '',
-        nomeNegou: '',
+        nome: '',
+        senha: '',
       },
       motivoDoBloqueio: '',
       itensVenda: '',
       formaDePagamento: '',
     },
   ])
+
+  const router = useRouter()
+
+  useEffect(() => {
+    const credentials = sessionStorage.getItem('sessionUser')
+    if (!credentials) {
+      router.push('/')
+    }
+  }, [router])
+
   return (
     <>
       <Seo title='Liberação' description='Listagem de liberações' />
