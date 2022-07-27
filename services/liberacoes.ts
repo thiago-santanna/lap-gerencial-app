@@ -18,7 +18,7 @@ async function buscarLiberacoes(id?: string): Promise<ILiberacaoItem[]> {
       .table('lapa03')
       .whereIn('l3codemp', ['NSD', 'IF4'])
       .orderBy('l3dathor', 'desc')
-      .limit(1)
+      .limit(10)
   }
 
   const liberacoesTransformadas = liberacoes.map((liberacao) => {
@@ -53,7 +53,7 @@ async function buscarLiberacoes(id?: string): Promise<ILiberacaoItem[]> {
 
     return tempLiberacao
   })
-  console.log(liberacoesTransformadas)
+  //console.log(liberacoesTransformadas)
   return liberacoesTransformadas
 }
 async function liberarOuNegar(): Promise<any> {}

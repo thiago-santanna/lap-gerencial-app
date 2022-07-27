@@ -22,7 +22,7 @@ export default function LiberacaoItem(props: ILiberacaoItem): ReactElement {
   return (
     <>
       <div className={styles.containerItem}>
-        <div className='realtive z-10 w-12 h-12 rounded-full ml-4'>
+        <div className='realtive z-10 w-12 h-12 rounded-full mr-2'>
           <Image
             src={handleImageStatus()}
             alt='Imagem do usuario'
@@ -37,7 +37,7 @@ export default function LiberacaoItem(props: ILiberacaoItem): ReactElement {
           <h2 className='text-lg font-bold'>{props.cliente?.nome}</h2>
         </div>
         <div>
-          <div>
+          <div className='font-bold'>
             <span className='mr-1'>{props.id}</span>
             <span>{props.codigoEmpresa}</span>
           </div>

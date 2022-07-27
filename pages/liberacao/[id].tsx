@@ -8,6 +8,10 @@ import { useRouter } from 'next/router'
 import axios from '../../providers/axios'
 import { ILiberacaoItem } from '../../types/liberacao-item'
 
+interface IObservacao {
+  name: string
+}
+
 export default function Liberacao(props: any): ReactElement {
   const [liberacoes, setLiberacoes] = useState<ILiberacaoItem[]>([
     {
@@ -32,6 +36,8 @@ export default function Liberacao(props: any): ReactElement {
     },
   ])
 
+  const [observacao, setObservacao] = useState('')
+
   const { query } = useRouter()
   const paramId = query.id
 
@@ -40,9 +46,8 @@ export default function Liberacao(props: any): ReactElement {
       .get('/liberacoes', { params: { id: paramId } })
       .then((response) => {
         const liberacoes: ILiberacaoItem[] = response.data
-        console.log(liberacoes)
-
         setLiberacoes(liberacoes)
+        setObservacao(liberacoes[0].motivoDoBloqueio)
       })
       .catch((error) => {})
   }, [paramId])
@@ -51,6 +56,18 @@ export default function Liberacao(props: any): ReactElement {
     if (status === 'accepted') return 'LIBERADO'
     if (status === 'rejected') return 'NEGADO'
     return 'PENDENTE'
+  }
+
+  function handleChangeObservacion(field: string) {
+    if (field === 'motivoDoBloqueio') {
+      setObservacao(liberacoes[0].motivoDoBloqueio)
+    }
+    if (field === 'itensVenda') {
+      setObservacao(liberacoes[0].itensVenda)
+    }
+    if (field === 'formaDePagamento') {
+      setObservacao(liberacoes[0].formaDePagamento)
+    }
   }
 
   return (
@@ -87,18 +104,27 @@ export default function Liberacao(props: any): ReactElement {
 
       <main className={styles.containerMain}>
         <div className={styles.contentMenu}>
-          <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+          <button
+            onClick={() => handleChangeObservacion('motivoDoBloqueio')}
+            className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-1 focus:bg-blue-800 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
+          >
             BLOQUEIOS
           </button>
-          <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+          <button
+            onClick={() => handleChangeObservacion('itensVenda')}
+            className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-800 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
+          >
             ITENS
           </button>
-          <button className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+          <button
+            onClick={() => handleChangeObservacion('formaDePagamento')}
+            className='px-2 py-2 tracking-wide text-white text-center justify-items-center justify-center transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-800 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
+          >
             FORMA PGT
           </button>
         </div>
         <div className={styles.contentMsg}>
-          <p>{liberacoes[0].motivoDoBloqueio}</p>
+          <p>{observacao}</p>
         </div>
       </main>
 

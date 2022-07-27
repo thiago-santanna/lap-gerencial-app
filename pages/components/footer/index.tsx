@@ -8,7 +8,7 @@ const Footer = () => {
         className='no-underline'
         rel='noreferrer'
       >
-        Lap Informática
+        Lap Informática LTDA
       </a>
     </footer>
   )
