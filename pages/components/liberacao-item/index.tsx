@@ -31,11 +31,9 @@ export default function LiberacaoItem(props: ILiberacaoItem) {
           />
         </div>
         <div>
-          <h1 className='text-lg font-bold'>{props.vendedor}</h1>
+          <h1 className='text-lg font-bold'>{props?.vendedor}</h1>
           <span>{props.dataPedido}</span>
-          <h2 className='text-lg font-bold'>
-            {props.cliente.nome || 'unknown'}
-          </h2>
+          <h2 className='text-lg font-bold'>{props.cliente?.nome}</h2>
         </div>
         <div>
           <div>
