@@ -1,13 +1,25 @@
 import { db } from '../providers/db'
 import { ILiberacaoItem } from '../types/liberacao-item'
+import { formatLocalDate } from '../providers/formatDate'
 
-async function buscarLiberacoes(): Promise<ILiberacaoItem[]> {
-  const liberacoes = await db
-    .select()
-    .table('lapa03')
-    .whereIn('l3codemp', ['NSD', 'IF4'])
-    .orderBy('l3dathor', 'desc')
-    .limit(100)
+async function buscarLiberacoes(id?: string): Promise<ILiberacaoItem[]> {
+  let liberacoes = []
+
+  if (id) {
+    liberacoes = await db
+      .select()
+      .table('lapa03')
+      .where('l3numero', id)
+      .orderBy('l3dathor', 'desc')
+      .limit(1)
+  } else {
+    liberacoes = await db
+      .select()
+      .table('lapa03')
+      .whereIn('l3codemp', ['NSD', 'IF4'])
+      .orderBy('l3dathor', 'desc')
+      .limit(1)
+  }
 
   const liberacoesTransformadas = liberacoes.map((liberacao) => {
     let status = ''
@@ -24,7 +36,7 @@ async function buscarLiberacoes(): Promise<ILiberacaoItem[]> {
       codigoEmpresa: liberacao.l3codemp,
       usuarioPedido: liberacao.l3usuari,
       vendedor: liberacao.l3vended,
-      dataPedido: liberacao.l3dathor,
+      dataPedido: formatLocalDate(liberacao.l3dathor, 'dd/MM/yyyy hh:mm:ss'),
       cliente: {
         id: liberacao.l3codcli,
         nome: liberacao.l3nomcli,

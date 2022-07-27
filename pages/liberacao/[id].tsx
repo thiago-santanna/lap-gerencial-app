@@ -3,8 +3,56 @@ import Seo from '../components/seo'
 import Image from 'next/image'
 import imgDanied from '../../public/denied.png'
 import imgaccepted from '../../public/accepted.png'
+import { ReactElement, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import axios from '../../providers/axios'
+import { ILiberacaoItem } from '../../types/liberacao-item'
 
-export default function Liberacao() {
+export default function Liberacao(props: any): ReactElement {
+  const [liberacoes, setLiberacoes] = useState<ILiberacaoItem[]>([
+    {
+      status: 'accepted',
+      id: '',
+      codigoEmpresa: '',
+      usuarioPedido: '',
+      vendedor: '',
+      dataPedido: '',
+      cliente: {
+        id: '',
+        nome: '',
+      },
+      valor: 0,
+      gerente: {
+        nome: '',
+        senha: '',
+      },
+      motivoDoBloqueio: '',
+      itensVenda: '',
+      formaDePagamento: '',
+    },
+  ])
+
+  const { query } = useRouter()
+  const paramId = query.id
+
+  useEffect(() => {
+    axios
+      .get('/liberacoes', { params: { id: paramId } })
+      .then((response) => {
+        const liberacoes: ILiberacaoItem[] = response.data
+        console.log(liberacoes)
+
+        setLiberacoes(liberacoes)
+      })
+      .catch((error) => {})
+  }, [paramId])
+
+  function statusLeberacao(status: string) {
+    if (status === 'accepted') return 'LIBERADO'
+    if (status === 'rejected') return 'NEGADO'
+    return 'PENDENTE'
+  }
+
   return (
     <div className={styles.container}>
       <Seo title='Liberação' description='Detalhes da liberação' />
@@ -12,27 +60,29 @@ export default function Liberacao() {
         <div className={styles.containerHeader}>
           <div className={styles.setorEsqHeader}>
             <p>Data do pedido:</p>
-            <p className={styles.dados}>02/06/2022 11:44:58</p>
+            <p className={styles.dados}>{liberacoes[0].dataPedido}</p>
             <p>Usuário que enviou:</p>
-            <p className={styles.dados}>ATE</p>
+            <p className={styles.dados}>{liberacoes[0].usuarioPedido}</p>
           </div>
           <div className={styles.setorDirHeader}>
             <p>Vendedor:</p>
-            <p className={styles.dados}>JUAN</p>
+            <p className={styles.dados}>{liberacoes[0].vendedor}</p>
             <p>Valor:</p>
-            <p className={styles.dados}>20,00</p>
+            <p className={styles.dados}>{liberacoes[0].valor}</p>
           </div>
         </div>
         <div className={styles.bodyHeader}>
           <span>Status:</span>
-          <span className={styles.status}>PENDENTE</span>
-          <span>ID:8167</span>
+          <span className={styles.status}>
+            {statusLeberacao(liberacoes[0].status)}
+          </span>
+          <span>ID: {liberacoes[0].id}</span>
         </div>
       </header>
 
       <div className='text-center font-bold text-xl flex justify-around'>
-        <span>35868</span>
-        <span>ORLANDO</span>
+        <span>{liberacoes[0].cliente?.id}</span>
+        <span>{liberacoes[0].cliente?.nome}</span>
       </div>
 
       <main className={styles.containerMain}>
@@ -48,17 +98,7 @@ export default function Liberacao() {
           </button>
         </div>
         <div className={styles.contentMsg}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium
-            vel risus a viverra. Nam vitae lacus varius, aliquet erat viverra,
-            sagittis arcu. Etiam euismod rhoncus gravida. Morbi finibus mi vitae
-            urna fermentum mollis. Integer sit amet enim vulputate, interdum
-            erat elementum, rhoncus sapien. Curabitur porta arcu nec odio
-            vestibulum pellentesque id sed nunc. Nunc ultrices dui eu enim
-            tempus, in blandit urna feugiat. Vivamus lorem lacus, euismod
-            feugiat eros eu, fringilla faucibus erat. Duis tincidunt ullamcorper
-            tortor sit amet vestibulum.
-          </p>
+          <p>{liberacoes[0].motivoDoBloqueio}</p>
         </div>
       </main>
 

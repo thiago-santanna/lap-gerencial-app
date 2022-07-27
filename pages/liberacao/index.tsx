@@ -40,8 +40,6 @@ export default function Liberacoes(): ReactElement {
   }, [router])
 
   useEffect(() => {
-    console.log('sessionStorage')
-
     axios
       .get('/liberacoes')
       .then((response) => {

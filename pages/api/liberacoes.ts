@@ -9,9 +9,14 @@ const Liberacoes = async (
     if (request.method === 'POST') {
       response.status(200).json('sampleUserData')
     } else if (request.method === 'GET') {
-      const liberacoes = await buscarLiberacoes()
-
-      response.status(200).json(liberacoes)
+      const { id } = request.query
+      if (id) {
+        const liberacao = await buscarLiberacoes(id.toString())
+        response.status(200).json(liberacao)
+      } else {
+        const liberacoes = await buscarLiberacoes()
+        response.status(200).json(liberacoes)
+      }
     } else {
       return response
         .status(500)

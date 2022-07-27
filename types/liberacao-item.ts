@@ -15,6 +15,7 @@ export interface ILiberacaoItem {
   usuarioPedido: string
   vendedor?: string
   dataPedido: string
+  //dataLiberacao: string
   cliente: Cliente
   valor: number
   gerente: Gerente

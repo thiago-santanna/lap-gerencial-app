@@ -7,8 +7,9 @@ import { ILiberacaoItem } from '../../../types/liberacao-item'
 
 import { ArrowRight } from 'react-feather'
 import Link from 'next/link'
+import { ReactElement } from 'react'
 
-export default function LiberacaoItem(props: ILiberacaoItem) {
+export default function LiberacaoItem(props: ILiberacaoItem): ReactElement {
   function handleImageStatus() {
     if (props.status === 'rejected') {
       return imgDanied
