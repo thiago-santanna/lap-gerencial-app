@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import BackgroundLogin from '../components/backgrounds/backgroundLogin'
 import { IEmpresa } from '../../types/empresa'
 import { IUserDb } from '../../types/usuario'
@@ -49,7 +48,7 @@ const CadastrarUsuario = (props: IEmpresa) => {
         <AlertsCustom
           principalColor='green'
           title='SUCESSO!'
-          message='Usuário cadastrado no sistema, volte e faça entre com seus dados.'
+          message='Usuário cadastrado no sistema.'
           hoverColor='green'
           handleHiddenMessage={handleHiddenMessage}
         />

@@ -11,7 +11,7 @@ function AlertsCustom({
   return (
     <>
       <div
-        className={`bg-red-100 py-5 px-6 mb-3 text-base text-${principalColor}-700 inline-flex items-center w-full`}
+        className={`bg-${principalColor}-100 py-5 px-6 mb-3 text-base text-${principalColor}-700 inline-flex items-center w-full`}
         role='alert'
       >
         <strong className='mr-1'>{title} </strong> {message}
