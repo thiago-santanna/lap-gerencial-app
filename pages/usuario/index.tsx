@@ -208,15 +208,15 @@ const CadastrarUsuario = (props: IEmpresa) => {
                     </div>
                   </form>
 
-                  <p className='mt-6 text-sm text-center text-gray-400'>
+                  {/* <p className='mt-6 text-sm text-center text-gray-400'>
                     Já tem uma conta?
-                    <Link href='/'>
+                    <Link href='/#'>
                       <a className='text-blue-500 pl-1 focus:outline-none focus:underline hover:underline'>
                         Entre agora
                       </a>
                     </Link>
                     .
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>

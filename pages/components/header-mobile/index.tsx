@@ -9,6 +9,7 @@ import {
   LogOut,
   User as UserIcon,
   Menu,
+  UserPlus,
 } from 'react-feather'
 
 import lapCircularImg from '../../../public/circular.png'
@@ -55,12 +56,19 @@ const HeaderMobile = () => {
         </div>
 
         <nav className={classMenu}>
-          <Link href='/liberacao'>
+          <Link href='/usuario'>
+            <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
+              <UserPlus size={24} color='white' className='mr-3' />
+              Cadastrar usuário(Lapinfo)
+            </a>
+          </Link>
+
+          {/* <Link href='/liberacao'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
               <DollarSign size={24} color='white' className='mr-3' />
               Faturamento
             </a>
-          </Link>
+          </Link> */}
 
           <Link href='/liberacao'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
@@ -69,34 +77,31 @@ const HeaderMobile = () => {
             </a>
           </Link>
 
-          <Link href='/liberacao'>
+          {/* <Link href='/liberacao'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
               <Key size={24} color='white' className='mr-3' />
               Desbloqueio
             </a>
-          </Link>
+          </Link> */}
 
-          <Link href='#'>
+          {/* <Link href='#'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
               <UserIcon size={24} color='white' className='mr-3' />
               Conta
             </a>
-          </Link>
+          </Link> */}
 
-          <Link href='/liberacao'>
+          {/* <Link href='/liberacao'>
             <a className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
               <HelpCircle size={24} color='white' className='mr-3' />
               Contate-nos
             </a>
-          </Link>
+          </Link> */}
 
-          <a
-            href='#'
-            className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
-          >
+          <div className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
             <LogOut size={24} color='white' className='mr-3' />
             Sair
-          </a>
+          </div>
         </nav>
       </header>
     </>
