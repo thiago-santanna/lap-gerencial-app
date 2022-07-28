@@ -1,14 +1,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import {
   DollarSign,
   Key,
   AlertTriangle,
   HelpCircle,
   UserPlus,
+  LogOut,
 } from 'react-feather'
 
 const Aside = () => {
+  const router = useRouter()
+
+  const handleShotdown = () => {
+    sessionStorage.removeItem('sessionUser')
+    router.push('/')
+  }
   return (
     <>
       <aside className='relative bg-sidebar h-screen w-72 hidden sm:block shadow-xl'>
@@ -55,6 +63,14 @@ const Aside = () => {
               Liberação de gerente
             </a>
           </Link>
+
+          <div
+            onClick={handleShotdown}
+            className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item'
+          >
+            <LogOut size={24} color='white' className='mr-3' />
+            Sair
+          </div>
 
           {/* <Link href='/liberacao'>
             <a className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item'>

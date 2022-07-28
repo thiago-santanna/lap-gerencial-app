@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import styles from '../../../styles/liberacao.module.css'
 import imgDanied from '../../../public/denied.png'
 import imgaccepted from '../../../public/accepted.png'
@@ -32,9 +32,9 @@ export default function LiberacaoItem(props: ILiberacaoItem): ReactElement {
           />
         </div>
         <div>
-          <h1 className='text-lg font-bold'>{props?.vendedor}</h1>
+          <h1 className='text-base font-bold'>{props?.vendedor}</h1>
           <span>{props.dataPedido}</span>
-          <h2 className='text-lg font-bold'>{props.cliente?.nome}</h2>
+          <h2 className='text-base font-bold'>{props.cliente?.nome}</h2>
         </div>
         <div>
           <div className='font-bold'>
@@ -45,7 +45,7 @@ export default function LiberacaoItem(props: ILiberacaoItem): ReactElement {
             <span>Usuario: {props.usuarioPedido}</span>
           </div>
           <div>
-            <span className='text-lg font-bold'>{props.valor}</span>
+            <span className='text-base font-bold'>{props.valor}</span>
           </div>
         </div>
         <div>

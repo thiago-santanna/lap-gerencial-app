@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import {
   DollarSign,
@@ -17,6 +18,7 @@ import lapCircularImg from '../../../public/circular.png'
 const HeaderMobile = () => {
   const [menuIsHidden, setMenuIsHidden] = useState(true)
   const [classMenu, setClassMenu] = useState('flex flex-col pt-4 hidden')
+  const router = useRouter()
 
   const handleShowMenu = () => {
     const value = !menuIsHidden
@@ -27,6 +29,11 @@ const HeaderMobile = () => {
       setMenuIsHidden(false)
       setClassMenu('flex flex-col pt-4')
     }
+  }
+
+  const handleShotdown = () => {
+    sessionStorage.removeItem('sessionUser')
+    router.push('/')
   }
 
   return (
@@ -98,7 +105,10 @@ const HeaderMobile = () => {
             </a>
           </Link> */}
 
-          <div className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'>
+          <div
+            onClick={handleShotdown}
+            className='flex items-center text-white text-lg opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
+          >
             <LogOut size={24} color='white' className='mr-3' />
             Sair
           </div>
