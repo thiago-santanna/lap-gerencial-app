@@ -17,6 +17,7 @@ const Home: NextPage = (props) => {
 
   function handleLoginUser() {
     setErrorAuthenticated(false)
+
     sessionStorage.getItem('sessionUser') &&
       sessionStorage.removeItem('sessionUser')
 
