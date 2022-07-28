@@ -48,7 +48,7 @@ export default function LiberacaoItem(props: ILiberacaoItem): ReactElement {
           </div>
           <div>
             <span className='text-base font-bold'>
-              {formatterCurrency(props.valor, 'pt-BR')}
+              {formatterCurrency(props.valor)}
             </span>
           </div>
         </div>

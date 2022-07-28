@@ -5,6 +5,10 @@ export const myRound = (value: number, precision: number) => {
   return Math.round(value * multiplier) / multiplier
 }
 
-export const formatterCurrency = (value: number, locale: string) => {
-  return currencyFormatter.format(value, { locale: locale })
+export const formatterCurrency = (value: number) => {
+  return currencyFormatter.format(value, {
+    precision: 2,
+    thousand: '.',
+    decimal: ',',
+  })
 }
