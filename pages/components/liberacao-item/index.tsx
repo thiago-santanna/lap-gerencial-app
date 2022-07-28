@@ -21,8 +21,6 @@ export default function LiberacaoItem(props: ILiberacaoItem): ReactElement {
     }
     return imgPending
   }
-
-  console.log(formatterCurrency(1000000.99, 'pt-BR'))
   return (
     <>
       <div className={styles.containerItem}>
@@ -49,7 +47,9 @@ export default function LiberacaoItem(props: ILiberacaoItem): ReactElement {
             <span>Usuario: {props.usuarioPedido}</span>
           </div>
           <div>
-            <span className='text-base font-bold'>{props.valor}</span>
+            <span className='text-base font-bold'>
+              {formatterCurrency(props.valor, 'pt-BR')}
+            </span>
           </div>
         </div>
         <div>
