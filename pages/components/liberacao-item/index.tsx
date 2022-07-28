@@ -5,6 +5,8 @@ import imgaccepted from '../../../public/accepted.png'
 import imgPending from '../../../public/pending.png'
 import { ILiberacaoItem } from '../../../types/liberacao-item'
 
+import { formatterCurrency } from '../../../providers/formatNumber'
+
 import { ArrowRight } from 'react-feather'
 import Link from 'next/link'
 import { ReactElement } from 'react'
@@ -19,6 +21,8 @@ export default function LiberacaoItem(props: ILiberacaoItem): ReactElement {
     }
     return imgPending
   }
+
+  console.log(formatterCurrency(1000000.99, 'pt-BR'))
   return (
     <>
       <div className={styles.containerItem}>
