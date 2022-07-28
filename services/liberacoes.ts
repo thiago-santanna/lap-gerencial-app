@@ -1,6 +1,7 @@
 import { db } from '../providers/db'
 import { ILiberacaoItem } from '../types/liberacao-item'
 import { formatLocalDate } from '../providers/formatDate'
+import { myRound } from '../providers/formatNumber'
 
 async function buscarLiberacoes(id?: string): Promise<ILiberacaoItem[]> {
   let liberacoes = []
@@ -41,7 +42,7 @@ async function buscarLiberacoes(id?: string): Promise<ILiberacaoItem[]> {
         id: liberacao.l3codcli,
         nome: liberacao.l3nomcli,
       },
-      valor: liberacao.l3valorv,
+      valor: myRound(liberacao.l3valorv, 2),
       gerente: {
         nome: liberacao.l3gerent,
         senha: liberacao.l3csenha,
