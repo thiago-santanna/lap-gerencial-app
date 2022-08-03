@@ -39,17 +39,34 @@ export default function Liberacao(props: any): ReactElement {
   const [observacao, setObservacao] = useState('')
 
   const { query } = useRouter()
-  const paramId = query.id
+  const router = useRouter()
+  let paramId: string | string[] | undefined
+
+  async function getCredentials(): Promise<void> {
+    const credentials = sessionStorage.getItem('sessionUser')
+    if (!credentials) {
+      router.push('/')
+    } else {
+      paramId = query.id
+    }
+  }
 
   useEffect(() => {
-    axios
-      .get('/liberacoes', { params: { id: paramId } })
-      .then((response) => {
-        const liberacoes: ILiberacaoItem[] = response.data
-        setLiberacoes(liberacoes)
-        setObservacao(liberacoes[0].motivoDoBloqueio)
-      })
-      .catch((error) => {})
+    async function checkUser() {
+      console.log('Checking user')
+      await getCredentials()
+    }
+    checkUser()
+    paramId &&
+      axios
+        .get('/liberacoes', { params: { id: paramId } })
+        .then((response) => {
+          console.log('axios')
+          const liberacoes: ILiberacaoItem[] = response.data
+          setLiberacoes(liberacoes)
+          setObservacao(liberacoes[0].motivoDoBloqueio)
+        })
+        .catch((error) => {})
   }, [paramId])
 
   function statusLeberacao(status: string) {

@@ -4,6 +4,13 @@ export interface IRetLogin {
     username: string
     passwordhashed: string
   }
+  empresas: [
+    {
+      id: string
+      codigoEmpresa: string
+      name: string
+    }
+  ]
 }
 
 export interface IUser {
